@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 3 - Futuristic Tic-Tac-Toe</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav id="mainNav">
+    <ul>
+      <li><a href="#" id="homeLink">Home</a></li>
+      <li><a href="#" id="tttLink">Tic-Tac-Toe</a></li>
+    </ul>
+  </nav>
+  <main>
+    <section id="contentSection" class="centered-section">
+      <h1 class="futuristic-heading">Welcome to Task 3</h1>
+    </section>
+  </main>
+  <script src="menu.js"></script>
+  <script src="tictactoe.js"></script>
+  <script>
+    // Dynamic content for each section
+    const contentSection = document.getElementById('contentSection');
+    const homeContent = `
+      <h1 class="futuristic-heading">Welcome to Task 3</h1>
+    `;
+    const tttContent = `
+      <div class="ttt-container">
+        <h2 class="ttt-title">Futuristic Tic-Tac-Toe</h2>
+        <div id="ttt-status" class="ttt-status">Player X's turn</div>
+        <div id="ttt-board" class="ttt-board"></div>
+        <button id="ttt-reset" class="ttt-reset">Reset Game</button>
+      </div>
+    `;
+
+    // Navigation click handlers
+    document.getElementById('homeLink').onclick = function(e) {
+      e.preventDefault();
+      contentSection.innerHTML = homeContent;
+      contentSection.className = "centered-section";
+    };
+    document.getElementById('tttLink').onclick = function(e) {
+      e.preventDefault();
+      contentSection.innerHTML = tttContent;
+      contentSection.className = "";
+      // Re-initialize tic-tac-toe events after DOM update
+      if (typeof setupTicTacToe === "function") setupTicTacToe();
+    };
+    // Initialize on load if ttt is shown by default
+    if (typeof setupTicTacToe === "function") setupTicTacToe();
+  </script>
+</body>
+</html>

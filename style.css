@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron:wght@500;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #181818 0%, #232526 100%);
+  color: #ffd600;
+  padding-top: 72px;
+  min-height: 100vh;
+}
+
+#mainNav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(34, 34, 34, 0.92);
+  z-index: 1000;
+  box-shadow: 0 2px 16px #ffd60055;
+  border-bottom: 2px solid #ffd60044;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s, box-shadow 0.3s, border-bottom 0.3s;
+}
+
+#mainNav ul {
+  margin: 0; padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+#mainNav li {
+  margin: 0 2em;
+  position: relative;
+}
+
+#mainNav a {
+  display: block;
+  padding: 1.2em 1.2em;
+  color: #ffd600;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1.5px;
+  font-size: 1.08em;
+  border-bottom: 2px solid transparent;
+  border-radius: 8px 8px 0 0;
+  transition: 
+    color 0.2s, 
+    border-bottom 0.2s, 
+    background 0.2s, 
+    font-size 0.2s,
+    box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+#mainNav a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ffd600 60%, #fff700 100%);
+  border-radius: 2px;
+  transition: width 0.3s cubic-bezier(.4,2,.6,1), left 0.3s cubic-bezier(.4,2,.6,1);
+  box-shadow: 0 0 8px #ffd60099;
+}
+
+#mainNav a:hover, #mainNav a:focus {
+  color: #232526;
+  background: #ffd600;
+  border-bottom: 2px solid #fff700;
+  font-size: 1.15em;
+  box-shadow: 0 2px 16px #ffd60088;
+}
+
+#mainNav a:hover::after, #mainNav a:focus::after {
+  width: 80%;
+  left: 10%;
+}
+
+#mainNav.scrolled {
+  background: #ffd600;
+  box-shadow: 0 4px 24px #ffd60099;
+  border-bottom: 2px solid #23252633;
+}
+
+#mainNav.scrolled a {
+  color: #232526;
+}
+
+#mainNav.scrolled a:hover, #mainNav.scrolled a:focus {
+  background: #232526;
+  color: #ffd600;
+  border-bottom: 2px solid #232526;
+  box-shadow: 0 2px 16px #23252688;
+}
+
+#mainNav.scrolled a::after {
+  background: linear-gradient(90deg, #232526 60%, #ffd600 100%);
+  box-shadow: 0 0 8px #23252699;
+}
+
+.centered-section {
+  height: 1200px;
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Futuristic heading styles */
+.futuristic-heading {
+  font-size: 4rem;
+  color: #ffd600;
+  text-align: center;
+  margin-top: 100px;
+  letter-spacing: 4px;
+  text-shadow: 0 0 18px #ffd60099, 0 2px 8px #fff2;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  font-weight: 700;
+  background: linear-gradient(90deg, #ffd600 60%, #fff700 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ttt-container {
+  background: rgba(34, 34, 34, 0.95);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px 0 #ffd60055, 0 1.5px 0 #fff3;
+  padding: 2.5em 2em 2em 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 340px;
+}
+
+.ttt-title {
+  margin-bottom: 1.2em;
+  font-size: 2.2em;
+  color: #ffd600;
+  letter-spacing: 2px;
+  text-shadow: 0 1px 8px #fff2;
+}
+
+.ttt-status {
+  font-size: 1.3em;
+  color: #fff;
+  margin-bottom: 1em;
+  letter-spacing: 1px;
+  min-height: 2em;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 12px;
+  margin-bottom: 1.5em;
+}
+
+.ttt-cell {
+  width: 80px;
+  height: 80px;
+  background: #232526;
+  border-radius: 12px;
+  font-size: 2.5em;
+  color: #ffd600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 12px #ffd60033;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+  user-select: none;
+}
+
+.ttt-cell:hover {
+  background: #ffd600;
+  color: #232526;
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px #ffd60099;
+}
+
+.ttt-cell.winner {
+  background: linear-gradient(90deg, #ffd600 60%, #fff700 100%);
+  color: #232526;
+  box-shadow: 0 0 24px #ffd600cc;
+}
+
+.ttt-reset {
+  background: linear-gradient(90deg, #ffd600 60%, #fff700 100%);
+  color: #232526;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.1em;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #ffd60055;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin-top: 1em;
+}
+
+.ttt-reset:hover {
+  background: linear-gradient(90deg, #fff700 60%, #ffd600 100%);
+  color: #000;
+  transform: scale(1.07);
+  box-shadow: 0 4px 16px #ffd60099;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+  #mainNav ul {
+    flex-direction: column;
+    background: rgba(34, 34, 34, 0.98);
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 4px 24px #ffd60033;
+  }
+  #mainNav li {
+    margin: 0.5em 0;
+  }
+  #mainNav a {
+    padding: 1em 2em;
+    font-size: 1em;
+  }
+  .futuristic-heading {
+    font-size: 2.2rem;
+    margin-top: 60px;
+  }
+  .ttt-board {
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 8px;
+  }
+  .ttt-cell {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+  }
+}
+
+/* Optional: Subtle glow for nav text */
+#mainNav, #mainNav.scrolled {
+  text-shadow: 0 0 8px #ffd60044;
+}
